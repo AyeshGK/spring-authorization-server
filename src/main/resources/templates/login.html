@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tutorial</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+
+    <style>
+        /* Custom styles */
+        .custom-heading {
+            color: #FF0000;
+            font-size: 24px;
+        }
+
+        .custom-button {
+            background-color: #00FF00;
+            color: #FFFFFF;
+        }
+
+        .login-card {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f8f8f8;
+        }
+
+        .powered-by {
+            text-align: center;
+            margin-top: 20px;
+            color: #999999;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="login-card">
+        <form class="form-signin" method="post" th:action="@{/login}">
+            <div th:if="${param.error}" class="alert alert-danger" role="alert">
+                Invalid credentials
+            </div>
+            <div th:if="${param.logout}" class="alert alert-success" role="alert">
+                You have logged out.
+            </div>
+            <h2 class="form-signin-heading custom-heading">Sign In</h2>
+            <p>
+                <label for="username" class="sr-only">Username</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+            </p>
+            <p>
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+            </p>
+            <button class="btn btn-lg btn-primary btn-block custom-button" type="submit">Sign In</button>
+        </form>
+    </div>
+    <div class="powered-by">
+        Powered by Hydra
+    </div>
+</div>
+</body>
+</html>
